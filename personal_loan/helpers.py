@@ -2,7 +2,6 @@ import requests
 import json
 
 
-
 def blacklist_status():
 
     url = "https://www.blacklistng.com/api/bvn/{}"
