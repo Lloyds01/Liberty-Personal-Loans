@@ -15,3 +15,9 @@ def blacklist_status():
     response = requests.request("GET", url, headers=headers, data=payload)
 
     print(response.text)
+
+
+
+def check_credolab_score():
+
+    pass 
