@@ -1,9 +1,13 @@
-from xml.dom.domreg import registered
 from django.db import models
 
 
 class Loan_disbursed(models.Model):
 
+    disbursment_id =            models.IntegerField(default=0)
+    borrower =                  models.CharField(max_length=50)
+    email    =                  models.EmailField(unique=True)
+    phone =                     models.CharField(max_length=20, null=True, blank=True)
+    bvn   =                     models.CharField(max_length=20)
     loan_product_name =         models.CharField(max_length=20, default="")
     loan_amount =               models.FloatField(default=0.0)
     interest =                  models.FloatField(default=0.0)
@@ -24,6 +28,15 @@ class Loan_disbursed(models.Model):
     penalty_paid =              models.FloatField(default=0.0)
 
 
+
+class Loan_repayments(models.Model):
+
+    phone =               models.CharField(max_length=20, null=True, blank=True)
+    amount =              models.FloatField(default=0.0)
+    payment_date =        models.DateTimeField()
+    is_auto_debit =       models.BooleanField(default=False)
+
+   
 class extra_informations(models.Model):
 
     state=                 models.CharField(max_length=50, default="")
@@ -40,19 +53,16 @@ class extra_informations(models.Model):
     cac =                  models.CharField(max_length=50)   
 
 
-class Loan_repayments(models.Model):
-    pass
-
-
 class user_cached_loans(models.Model):
     
     # user            =         models.ForeignKey()
-    blacklist_score =         models.CharField(max_length=10)
+    blacklist_response =      models.CharField(max_length=10)
     credolab_score  =         models.CharField(max_length=10)
     pengme_response =         models.CharField(max_length=20)
     hadada_response =         models.CharField(max_length=20)
     loan_offer      =         models.FloatField(default=0.0)
     is_disbursed    =         models.BooleanField(default=False)
+
 
 
 class Returning_good_borrowers(models.Model):
@@ -65,3 +75,8 @@ class loan_performance(models.Model):
 
 class Disbursment_transaction(models.Model):
     pass 
+
+
+class Borrower_documents(models.Model):
+    pass 
+
