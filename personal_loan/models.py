@@ -1,9 +1,9 @@
 from django.db import models
 
 
-class Loans(models.Model):
+class Loan_data(models.Model):
 
-    # disbursment_id =            models.IntegerField(default=0)
+    
     borrower =                  models.CharField(max_length=50)
     email    =                  models.EmailField(unique=True)
     phone =                     models.CharField(max_length=20, null=True, blank=True)

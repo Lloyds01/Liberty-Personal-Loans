@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Loans
+from .models import *
 
 
 class loan_serializer(serializers.ModelSerializer):
     
-    model = Loans
+    model = Loan_data
     fields = "__all__"
